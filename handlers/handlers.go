@@ -74,8 +74,11 @@ func ProcesoCategory(body string, path string, method string, user string, id in
 	switch method {
 	case "POST":
 		return routers.InsertCategory(body, user)
+	case "PUT":
+		return routers.UpdateCategory(body, user, id)
 	}
-	return 200, "Method invalid"
+	
+	return 400, "Method invalid"
 }
 func ProcesoStock(body string, path string, method string, user string, id int, request events.APIGatewayV2HTTPRequest) (int, string) {
 	return 200, "Method invalid"
